@@ -1,0 +1,38 @@
+footer {
+    margin-top: auto;
+    padding: 0.5rem;
+    height: 4rem;
+    display: flex;
+    background-color: cadetblue;
+    justify-content: center;
+    align-items: center;
+    align-self: auto;
+}
+
+footer ul {
+    padding: 0.7rem 10rem 0;
+    /* margin-left: auto; */
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+footer ul li,
+footer ul li a {
+    display: block;
+}
+
+footer ul li a{
+    text-decoration: none;
+}
+
+footer ul li a svg {
+font-size: 1.5rem;
+}
+
+footer p {
+    padding: 0;
+    padding-left: 15rem;
+    font-size: 20px;
+}
+
