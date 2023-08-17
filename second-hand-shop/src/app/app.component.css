@@ -1,0 +1,8 @@
+main {
+    width: 70%;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1 1 80%;
+    border: 2px solid black;
+}
