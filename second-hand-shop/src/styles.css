@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font: 16px/1.5 "Verdana", sans-serif;
+}
+
+
+body,
+input,
+label,
+button,
+textarea {
+    font: inherit;
+}
+
+p,
+ul {
+    padding-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 1.4rem
+}
+
+h3 {
+    font-size: 2.9rem
+}
+
+h4 {
+    font-size: 1.5rem
+}
+
+h5 {
+    font-size: 1.2rem
+}
+
+h6 {
+    font-size: 1rem
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
