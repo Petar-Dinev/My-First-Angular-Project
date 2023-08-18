@@ -7,7 +7,7 @@ header {
     align-items: center;
 }
 header nav {
-    padding-right: 5rem;
+    padding-right: 10rem;
     margin-left: auto;
 }
 header nav ul {
@@ -24,10 +24,11 @@ header nav ul li {
     padding: 0.5rem;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: purple;
+    background-color: rgb(121, 59, 179);
 }
 header nav ul li:hover {
-    background-color: rgb(150, 70, 224);
+    background-color: rgb(100, 1, 100);
+    cursor: pointer;
 }
 header nav ul li a {
     display: block;
@@ -35,8 +36,8 @@ header nav ul li a {
     text-decoration: none;
 }
 header h2 {
-    margin-left: 5rem;
-    font-size: 2rem;
+    margin-left: 15rem;
+    font-size: 2.5rem;
     align-self: center;
 }
 header h2 a{

@@ -1,14 +1,18 @@
 <header>
-    <h2><a routerLink="/">CarShop</a></h2>
+    <h2><a routerLink="/home">CarShop</a></h2>
     <nav>
-            <ul>
-                <li><a routerLink="/">Home</a></li>
+            <ul *ngIf="isloggedIn">
+                <li><a routerLink="/home">Home</a></li>
                 <li><a routerLink="/catalog">Catalog</a></li>
                 <li><a routerLink="/addCar">Add Car Offer</a></li>
-                <li><a routerLink="/about">About</a></li>
+                <li (click)="logout()"><a href="#">Logout</a></li>
+            </ul>
+
+            <ul *ngIf="!isloggedIn">
+                <li><a routerLink="/home">Home</a></li>
+                <li><a routerLink="/catalog">Catalog</a></li>
                 <li><a routerLink="/login">Login</a></li>
                 <li><a routerLink="/register">Register</a></li>
-                <li><a routerLink="/logout">Logout</a></li>
             </ul>
         
     </nav>
