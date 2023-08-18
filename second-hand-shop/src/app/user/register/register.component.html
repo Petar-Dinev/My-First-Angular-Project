@@ -1,0 +1,32 @@
+<div class="register-container">
+    <h2>Register</h2>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmitHandler(registerForm)">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" #emailInput="ngModel" ngModel required>
+            <p *ngIf="emailInput.touched && emailInput?.errors?.['required']" style="color:red">Email is required</p>
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" #usernameInput="ngModel" ngModel required>
+            <p *ngIf="usernameInput.touched && usernameInput?.errors?.['required']" style="color:red">Username is required</p>
+        </div>
+        <div class="form-group">
+            <label for="phone">PhoneNumber:</label>
+            <input type="tel" id="phone" name="phone" #phoneInput="ngModel" ngModel required>
+            <p *ngIf="phoneInput.touched && phoneInput?.errors?.['required']" style="color:red">PhoneNumber is required</p>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" #passwordInput="ngModel" ngModel required>
+            <p *ngIf="passwordInput.touched && passwordInput?.errors?.['required']" style="color:red">Password is required</p>
+        </div>
+        <div class="form-group">
+            <label for="rePass">RepeatPassword:</label>
+            <input type="password" id="rePass" name="rePass" #rePassInput="ngModel" ngModel required>
+            <p *ngIf="rePassInput.touched && rePassInput?.errors?.['required']" style="color:red">RepeatPassword is required</p>
+        </div>
+        <button type="submit" (click)="register()">Register</button>
+    </form>
+    <p>If u have account go <a routerLink="/login"><span>Login</span></a></p>
+</div>
