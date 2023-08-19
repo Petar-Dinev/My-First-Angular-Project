@@ -1,32 +1,49 @@
 <div class="register-container">
     <h2>Register</h2>
-    <form #registerForm="ngForm" (ngSubmit)="onSubmitHandler(registerForm)">
+    <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" #emailInput="ngModel" ngModel required>
-            <p *ngIf="emailInput.touched && emailInput?.errors?.['required']" style="color:red">Email is required</p>
+            <input type="email" id="email" name="email" #emailInput="ngModel" ngModel required
+                [appEmail]="appEmailDomains">
+            <ng-container *ngIf="emailInput.touched">
+                <p *ngIf="emailInput?.errors?.['required']" class="error">Email is required!</p>
+                <p *ngIf="emailInput?.errors?.['appEmailValidator']" class="error">Email is invalid!</p>
+            </ng-container>
         </div>
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" #usernameInput="ngModel" ngModel required>
-            <p *ngIf="usernameInput.touched && usernameInput?.errors?.['required']" style="color:red">Username is required</p>
+            <input type="text" id="username" name="username" #usernameInput="ngModel" ngModel minlength="3" required>
+            <ng-container *ngIf="usernameInput.touched">
+                <p *ngIf="usernameInput?.errors?.['required']" class="error">Username is required!</p>
+                <p *ngIf="usernameInput?.errors?.['minlength']" class="error">Username must be at least 3 character
+                    long!</p>
+            </ng-container>
         </div>
         <div class="form-group">
             <label for="phone">PhoneNumber:</label>
             <input type="tel" id="phone" name="phone" #phoneInput="ngModel" ngModel required>
-            <p *ngIf="phoneInput.touched && phoneInput?.errors?.['required']" style="color:red">PhoneNumber is required</p>
+            <p *ngIf="phoneInput.touched && phoneInput?.errors?.['required']" style="color:red">PhoneNumber is required
+            </p>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" #passwordInput="ngModel" ngModel required>
-            <p *ngIf="passwordInput.touched && passwordInput?.errors?.['required']" style="color:red">Password is required</p>
+            <input type="password" id="password" name="password" #passwordInput="ngModel" ngModel required
+                minlength="6">
+            <ng-container *ngIf="passwordInput.touched">
+                <p *ngIf="passwordInput?.errors?.['required']" class="error">Password is required!</p>
+                <p *ngIf="passwordInput?.errors?.['minlength']" class="error">Password must be at least 6 characters
+                    long!</p>
+            </ng-container>
         </div>
         <div class="form-group">
             <label for="rePass">RepeatPassword:</label>
             <input type="password" id="rePass" name="rePass" #rePassInput="ngModel" ngModel required>
-            <p *ngIf="rePassInput.touched && rePassInput?.errors?.['required']" style="color:red">RepeatPassword is required</p>
+            <ng-container *ngIf="rePassInput.touched">
+                <p *ngIf="rePassInput?.errors?.['required']" class="error">RepeatPassword is required!</p>
+                <p *ngIf="passwordsMissMatch" class="error">Passwords missmatch!</p>
+            </ng-container>
         </div>
-        <button type="submit" (click)="register()">Register</button>
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
     </form>
     <p>If u have account go <a routerLink="/login"><span>Login</span></a></p>
 </div>

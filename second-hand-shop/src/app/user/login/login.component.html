@@ -1,16 +1,22 @@
 <div class="login-container">
     <h2>Login</h2>
-    <form #loginForm="ngForm" (ngSubmit)="onSubmitHandler(loginForm)">
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
         <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" #usernameInput="ngModel" ngModel required>
-            <p *ngIf="usernameInput.touched && usernameInput?.errors?.['required']" style="color:red">Username is required</p>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" #emailInput="ngModel" ngModel required [appEmail]="appEmailDomains">
+            <ng-container *ngIf="emailInput.touched">
+                <p *ngIf="emailInput.errors?.['required']" style="color:red">Email is required</p>
+                <p *ngIf="emailInput.errors?.['appEmailValidator']" style="color:red">Email is invalid</p>
+            </ng-container>
         </div>
+        
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" ngModel required>
+            <input type="password" id="password" name="password"  #passwordInput="ngModel" ngModel required minlength="6">
+            <p *ngIf="passwordInput.touched && passwordInput.errors?.['required']" style="color:red">Password is required!</p>
+            <p *ngIf="passwordInput.touched && passwordInput.errors?.['minlength']" style="color:red">Password must be long at least 6 characters!</p>
         </div>
-        <button type="submit" (click)="login()">Login</button>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
     <p>If u dont have account go <a routerLink="/register"><span>register</span></a></p>
 </div>

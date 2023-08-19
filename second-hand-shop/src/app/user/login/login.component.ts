@@ -2,32 +2,26 @@ import { Component } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { DEFAULT_EMAIL_DOMAINS } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  appEmailDomains = DEFAULT_EMAIL_DOMAINS;
 
-  constructor(private userService: UserService, private router: Router) {
-    
-  }
+  constructor(private userService: UserService, private router: Router) {}
 
-
-  onSubmitHandler(form: NgForm) {
-    if(form.invalid) {
+  onLogin(form: NgForm) {
+    if (form.invalid) {
       return;
     }
-    const value: {username: String; email: String} = form.value;
-    
-    form.setValue({username: '', password: ''})
-  }
+    const { email, password } = form.value;
 
-  login() {
-    this.userService.logIn()
-    this.router.navigate(['/cars'])
+    this.userService.logIn(email, password).subscribe({
+      next: () => this.router.navigate(['/cars'])
+    });
   }
-
-  
 }
