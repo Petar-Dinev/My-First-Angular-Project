@@ -1,2 +1,2 @@
 # My-First-Angular-Project
-Second_Hand_Shop
+My project is online shop for buy/sell second hand cars. To work app need clone repo to your PC. Open repo with Visual Studio Code. Open terminal and get in server folder, write in terminal "node server.js".Then open second terminal and enter in 'second-hand-shop' folder. There write in terminal npm install first for node_modules, then ng serve. Now can find my app on 'http://localhost:4200' url.
