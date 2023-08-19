@@ -11,15 +11,14 @@ export class ApiService {
 
   getCars() {
     const { apiUrl } = environment;
-    return this.http.get<Car[]>(`${apiUrl}/cars`);
+    return this.http.get<Car[]>(`/api/data/cars`);
   }
   getCar(id: string) {
     const { apiUrl } = environment;
-     return this.http.get<Car>(`${apiUrl}/cars/${id}`);
+     return this.http.get<Car>(`/api/data/cars/${id}`);
   }
-  createCar(carInfo: Car) {
-    const { apiUrl } = environment;
-     return this.http.post<Car>(`${apiUrl}/cars`, {...carInfo});
+  createCar(brand:string, model:string,year:number,price:number,location:string,description:string) {
+     return this.http.post<Car>('/api/data/cars', {brand, model, year, price, location, description});
   }
   updateCar(id: string, carInfo: Car) {
     const { apiUrl } = environment;

@@ -1,8 +1,10 @@
 main {
-    width: 70%;
+    width: 60%;
     min-height: 85vh;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     flex: 1 1 80%;
-    border: 2px solid black;
+    background-color: rgb(244, 251, 163);
+    border-right: 1px solid black;
+    border-left: 1px solid black;
 }
