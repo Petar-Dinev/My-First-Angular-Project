@@ -1,0 +1,55 @@
+header {
+    padding-bottom: 1rem;
+}
+
+img {
+    width: 40rem;
+    height: 30rem;
+    padding-bottom: 3rem;
+}
+
+p {
+    padding-bottom: 0.5rem;
+}
+
+article {
+    display: flex;
+    gap: 1rem;
+}
+
+section.img {
+    flex: 2 1 auto;
+}
+
+section.carInfo {
+    flex: 1 1 auto;
+}
+
+button {
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.edit {
+    padding: 0.5rem;
+    background-color: greenyellow;
+    color: rgb(73, 69, 65);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.edit:hover {
+    background-color: rgb(83, 118, 30);
+}
+
+.delete {
+    padding: 0.5rem;
+    background-color: red;
+    color: rgb(106, 102, 99);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.delete:hover {
+    background-color: rgb(105, 22, 22);
+}

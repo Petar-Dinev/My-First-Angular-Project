@@ -1,0 +1,20 @@
+<section class="details">
+    <header>
+        <h2>{{car?.brand}} - {{car?.model}}</h2>
+    </header>
+    <article>
+        <section class="img">
+            <img src="{{car?.imageUrl}}">
+            <div class="buttons" *ngIf="isOwner">
+                <button class="edit" routerLink="edit">Edit</button>
+                <button class="delete" (click)="onDelete()">Delete</button>
+            </div>
+        </section>
+        <section class="carInfo">
+            <p><b>Price: {{car?.price}}</b></p>
+            <p>Year: {{car?.year}}</p>
+            <p>Description: {{car?.description}}</p>
+            <button *ngIf="!isOwner">Call Owner</button>
+        </section>
+    </article>
+</section>
