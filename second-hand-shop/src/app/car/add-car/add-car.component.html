@@ -1,0 +1,52 @@
+<section>
+    <header>
+        <h2>Add Car</h2>
+    </header>
+    <article>
+        <form #createForm="ngForm" (ngSubmit)="addCar(createForm)">
+            <div class="form-group">
+                <label for="brand">Brand:</label>
+                <input type="text" id="brand" name="brand" #brandInput="ngModel" ngModel required>
+                <p *ngIf="brandInput.touched && brandInput?.errors?.['required']"  style="color:red">Brand required!</p>
+            </div>
+            <div class="form-group">
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" #modelInput="ngModel" ngModel required>
+                <p *ngIf="modelInput.touched && modelInput?.errors?.['required']"  style="color:red">Model required!</p>
+
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" #yearInput="ngModel" ngModel required>
+                <p *ngIf="yearInput.touched && yearInput?.errors?.['required']"  style="color:red">Year required!</p>
+
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" #priceInput="ngModel" ngModel required>
+                <p *ngIf="priceInput.touched && priceInput?.errors?.['required']"  style="color:red">Price required!</p>
+
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" #locationInput="ngModel" ngModel required>
+                <p *ngIf="locationInput.touched && locationInput?.errors?.['required']"  style="color:red">Location required!</p>
+
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">ImageUrl:</label>
+                <input type="text" id="imageUrl" name="imageUrl" #imageUrlInput="ngModel" ngModel required>
+                <p *ngIf="imageUrlInput.touched && imageUrlInput?.errors?.['required']"  style="color:red">ImageUrl required!</p>
+
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" #descriptionInput="ngModel" ngModel required cols="30"
+                    rows="10"></textarea>
+                <p *ngIf="descriptionInput.touched && descriptionInput?.errors?.['required']"  style="color:red">Description required!</p>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </article>
+</section>
